@@ -9,7 +9,7 @@ const AccountProvider = ({ children }) => {
     const [activeUsers, setActiveUsers] = useState([]);
 
     useEffect(() => {
-        socket.current = io('http://localhost:9000')
+        socket.current = io('http://localhost:8000')
     }, [])
 
     return <>

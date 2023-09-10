@@ -169,21 +169,24 @@ function Messages({ person, conversation }) {
             : `background-color:${chatWallpaper};`
         }
     `
-    // typing event
-    if (textMessage !== "") {
-        socket.current.emit("typing", {
-            senderId: account.sub,
-            isTyping: true
+
+    useEffect(() => {
+        // typing event
+        if (textMessage !== "") {
+            socket.current.emit('start-typing')
+        } else {
+            socket.current.emit('stop-typing')
+        }
+        socket.current.on("start-typing", (userid) => {
+            setIsTyping(true)
+            console.log(socket.current);
         })
-        socket.current.on('show-typing', data => {
-            console.log(data);
-            if (data.isTyping)
-                setIsTyping(true)
-            else setIsTyping(false)
+        
+        socket.current.on("stop-typing", (userid) => {
+            setIsTyping(false)
         })
-    } else {
-        setIsTyping(false)
-    }
+    }, [textMessage])
+
 
     // add new message
     const sendText = async (e) => {
