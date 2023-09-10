@@ -1,0 +1,9 @@
+:root {
+    --contexify-item-color: #202020 !important;
+    --contexify-activeItem-color: #202020 !important;
+    --contexify-activeItem-bgColor: #f0f0f0 !important;
+}
+
+.contexify {
+    font-size: 14px !important;
+}
