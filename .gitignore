@@ -1,4 +1,4 @@
 whatsapp-client/node_modules
 whatsapp-server/node_modules
 whatsapp-socket/node_modules
-whatsapp-socket
+/whatsapp-socket
