@@ -122,8 +122,9 @@ function Actioncard({ icon, title }) {
 }
 
 function ContactInfo() {
-    const { account } = useContext(AccountContext)
+    const { account, person } = useContext(AccountContext)
     const { setToggleContactInfo } = useContext(GeneralContext)
+    console.log('person',person);
     const settings = [
         {
             icon: <StarIcon />,
@@ -147,6 +148,9 @@ function ContactInfo() {
         {
             icon: <DeleteIcon />,
             title: "Delete Chat",
+            onClick:()=>{
+                
+            }
         },
         {
             icon: <BlockIcon />,
@@ -174,7 +178,7 @@ function ContactInfo() {
             </AvatarWrapper>
             <AboutWrapper>
                 <Typography sx={{ fontWeight: 600 }}>About</Typography>
-                <Typography sx={{ fontSize: 14 }}>Failure is the first step of success</Typography>
+                <Typography sx={{ fontSize: 14 }}>{account.bio}</Typography>
             </AboutWrapper>
             <MediaWrapper>
                 <MediaFlex>

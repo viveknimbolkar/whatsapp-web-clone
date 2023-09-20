@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import AddIcon from '@mui/icons-material/Add';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import MicIcon from '@mui/icons-material/Mic';
-import AttachFileIcon from '@mui/icons-material/AttachFile';
 import { uploadFileToServer } from '../../../service/api';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';

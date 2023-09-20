@@ -3,17 +3,14 @@ import { Box, Typography } from '@mui/material'
 import './contextify.css'
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { noMessageYetImage } from '../../constant/data'
-import { getChatWallpaper, getConversation, getMessages, newMessage } from '../../../service/api'
+import { getChatWallpaper, getMessages, newMessage } from '../../../service/api'
 import Footer from './Footer'
 import { AccountContext } from '../../../context/AccountProvider'
 import formatDate from '../../../utils/commonUtils'
-import { Menu, Item, Separator, Submenu, useContextMenu } from 'react-contexify';
+import { Menu, Item, useContextMenu } from 'react-contexify';
 import 'react-contexify/ReactContexify.css';
 import { GeneralContext } from '../../../context/GeneralContext'
-import Backdrop from '@mui/material/Backdrop';
 import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
 
 
@@ -151,7 +148,7 @@ const AMessage = ({ message, currentUser, senderId, text, createdAt, msgType }) 
 
 function Messages({ person, conversation }) {
     const { account, socket } = useContext(AccountContext);
-    const { setToggleContactInfo, isTyping, setIsTyping, chatWallpaper, setChatWallpaper } = useContext(GeneralContext)
+    const { setToggleContactInfo, setIsTyping, chatWallpaper, setChatWallpaper } = useContext(GeneralContext)
     const [messages, setMessages] = useState([])
     const [incommingMessage, setIncommingMessage] = useState([])
     const [textMessage, setTextMessage] = useState('')
@@ -181,7 +178,7 @@ function Messages({ person, conversation }) {
             setIsTyping(true)
             console.log(socket.current);
         })
-        
+
         socket.current.on("stop-typing", (userid) => {
             setIsTyping(false)
         })
