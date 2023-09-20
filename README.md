@@ -8,6 +8,10 @@ This is a realtime whatsapp clone application build using
 
 Message delivered in real-time and simultaneously stored in the database.
 
+**Note**: 
+- Create a .env.local file in whatsapp-client/ and add `REACT_APP_GOOGLE_OAUTH_CLIENT_ID` variables.
+
+- Create a .env file in whatsapp-server/ and add `MONGODB_URI` `PORT` `SERVER_URL` `CLIENT_URL` variables.
 ## Additional Features
 - Change chat wallpaper
 - Search for the chat of specific date
